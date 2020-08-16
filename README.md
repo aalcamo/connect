@@ -12,6 +12,8 @@ I’ll model the collection of cities using a graph data structure where each ve
 ## Loading the Cities
 Based on best practice, I placed the city.txt resource into the java.main.resources folder, where we can retrieve it via a ResourceLoaderAware implementation. This resource will be loaded from the classpath.
 
-## Assumptions
-Security does not need to be considered per the requirement. In future versions, possibly integrate Okta for authentication (using an OAuth 2.0 access token). The controller was not specifically unit tested as the requirement was for unit tests and this would require a more detailed integration test.
+## Swagger
+[API Documentation](http://localhost:8080/swagger-ui/)  [Swagger metadata which describes the connect API](http://localhost:8080/v2/api-docs)
 
+## Assumptions
+Security does not need to be considered per the requirement. In future versions, possibly integrate Okta for authentication (using an OAuth 2.0 access token). The controller was not specifically unit tested as the requirement was for unit tests and this would require a more detailed integration test. API versioning with Swagger is not necessary as the example requests do not indicate version.

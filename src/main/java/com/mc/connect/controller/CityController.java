@@ -1,10 +1,14 @@
 package com.mc.connect.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mc.connect.service.CityService;
+
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 /**
  * Controller is ready to be leveraged by Spring MVC to handle web requests.
@@ -16,6 +20,7 @@ import com.mc.connect.service.CityService;
  *
  */
 @RestController
+@RequestMapping("/connected")
 public class CityController {
 
 	private CityService cityService;
@@ -38,8 +43,12 @@ public class CityController {
 	 * @param destination city traveling to
 	 * @return
 	 */
-	@RequestMapping("/connected")
-	public String connect(@RequestParam(name = "origin", required = false, defaultValue = "") String origin,
+	@ApiOperation(	value = "Determine if two cities are connected")
+	@RequestMapping(method = RequestMethod.GET, produces = "text/plain")
+	public String connect(
+			@ApiParam(value = "Origin City")
+			@RequestParam(name = "origin", required = false, defaultValue = "") String origin,
+			@ApiParam(value = "Destination City")
 			@RequestParam(name = "destination", required = false, defaultValue = "") String destination) {
 
 		if (origin.isEmpty() || destination.isEmpty())  {
